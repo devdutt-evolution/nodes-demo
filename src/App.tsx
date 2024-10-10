@@ -13,7 +13,7 @@ import '@xyflow/react/dist/style.css';
 import {
   ChevronLeft,
   ChevronRight,
-  Flashlight,
+  // Flashlight,
   Layers2,
   Plus,
 } from 'lucide-react';
@@ -26,19 +26,10 @@ import {
 } from './constants';
 
 export default function App() {
-  const [blink, setBlink] = useState(false);
   const [open, setOpen] = useState(false);
   const [afterDelay, setAfterDelay] = useState(false);
   const [nodes, setNodes, onNodesChange] = useNodesState(templateNodesOne);
   const [edges, setEdges, onEdgesChange] = useEdgesState(templateEdgesOne);
-
-  useEffect(() => {
-    if (blink) {
-      setTimeout(() => {
-        setBlink(false);
-      }, 200);
-    }
-  }, [blink]);
 
   useEffect(() => {
     let t: number | undefined = undefined;
@@ -74,7 +65,7 @@ export default function App() {
     ]);
   };
 
-  return !blink ? (
+  return (
     <div
       style={{ width: '100dvw', height: '100dvh' }}
       className='bg-neutral-900 flex text-sm text-white'
@@ -143,12 +134,6 @@ export default function App() {
         <Panel position='top-right' className='flex gap-4'>
           <button
             className='text-white/85 border-white/85 flex items-center gap-2 px-3 py-2 font-semibold border-2 rounded-md'
-            onClick={() => setBlink(true)}
-          >
-            <Flashlight />
-          </button>
-          <button
-            className='text-white/85 border-white/85 flex items-center gap-2 px-3 py-2 font-semibold border-2 rounded-md'
             onClick={() => setOpen((v) => !v)}
           >
             Templates
@@ -162,9 +147,5 @@ export default function App() {
         </Panel>
       </ReactFlow>
     </div>
-  ) : (
-    <div
-      style={{ width: '100dvw', height: '100dvh', backgroundColor: 'white' }}
-    ></div>
   );
 }
