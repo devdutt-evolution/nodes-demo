@@ -1,5 +1,5 @@
 import { Handle, NodeResizeControl, Position } from '@xyflow/react';
-import { Link, Scaling } from 'lucide-react';
+import { Link } from 'lucide-react';
 import { Expand } from './Expand';
 
 export const LoadBalancer = ({ data }: { data: { title: string } }) => {

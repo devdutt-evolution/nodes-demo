@@ -1,5 +1,5 @@
 import { Handle, NodeResizeControl, Position } from '@xyflow/react';
-import { Link, ListMinus } from 'lucide-react';
+import { Link } from 'lucide-react';
 import { Expand } from './Expand';
 import { SelectedIcon } from './SelectedIcon';
 
